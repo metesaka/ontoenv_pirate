@@ -8,7 +8,7 @@ A pirate ontology dependency manager
 ```
 2. Finds dependencies of dependencies (and their dependencies ...) with the same idea using bfs
 3. Along the way, tries to download the ttl file of the ontology using the URI (also downloads xml)
-4. For the URIs that doesn't work, uses openai api to search web to hopefully find it (to see prompt [click here](./src/ontoenv_pirate/find_ttl_source.py)) (TODO: can also improved to consider )
+4. For the URIs that doesn't work, uses openai api to search web to hopefully find it (to see prompt [click here](./src/ontoenv_pirate/find_ttl_source.py)) (TODO: can also improved to consider xml)
 5. Uses about 30k token per run (~$0.07)
 6. Doesn't consider local ttl files yet
 
