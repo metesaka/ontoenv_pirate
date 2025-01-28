@@ -1,0 +1,61 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ont: <http://purl.org/net/ns/ontology-annot#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ont:created a rdf:Property ;
+    rdfs:label "created" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf dcterms:created .
+
+ont:creator a rdf:Property ;
+    rdfs:label "creator" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf dc:creator .
+
+ont:deprecatedBy a rdf:Property ;
+    rdfs:label "deprecated by" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf ont:seeOther .
+
+ont:description a rdf:Property ;
+    rdfs:label "description" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf dc:description .
+
+ont:modified a rdf:Property ;
+    rdfs:label "modified" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf dcterms:modified .
+
+ont:relation a rdf:Property ;
+    rdfs:label "relation" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf dc:relation .
+
+ont:title a rdf:Property ;
+    rdfs:label "title" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf dc:title .
+
+ont:seeOther a rdf:Property ;
+    rdfs:label "see other" ;
+    rdfs:isDefinedBy <http://purl.org/net/ns/ontology-annot> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+<urn:pin:MK705> a foaf:Person ;
+    rdfs:seeAlso <http://www.kanzaki.com/info/webwho.rdf> ;
+    foaf:homepage <http://www.kanzaki.com/> ;
+    foaf:name "神崎正英"@ja .
+
+<http://purl.org/net/ns/ontology-annot> rdfs:label "Ontology annotation DLiser vocabulary" ;
+    ont:created "2007-10-08" ;
+    ont:creator <urn:pin:MK705> ;
+    ont:modified "2007-11-07" ;
+    rdfs:comment "Vocabulary to define some annotation properties as subproperties of common terms. Because owl:Ontology resource cannot have properties other than annotation, these terms are defined as owl:AnnotationProperty type in dliser.rdf that is to be imported. However, some RDF application might want those properties to be related to well known terms such as Dublin Core. Hence this vocabulary redefines these properties as ordinary RDF/OWL terms and subProperty of others.",
+        "オントロジーのアノテーションに用いるプロパティを、汎用プロパティと関連付けるための回避策としての語彙"@ja ;
+    owl:versionInfo "Version 0.12" .
+

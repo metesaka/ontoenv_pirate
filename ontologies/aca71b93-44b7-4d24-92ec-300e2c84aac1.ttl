@@ -1,0 +1,137 @@
+# baseURI: http://qudt.org/schema/extensions/functions
+# imports: http://spinrdf.org/spl
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://qudt.org/schema/extensions/functions>
+  rdfs:isDefinedBy <http://qudt.org/schema/extensions/functions> ;
+.
+<http://qudt.org/schema/extensions/functions>
+  a owl:Ontology ;
+  owl:imports <http://spinrdf.org/spl> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+<http://qudt.org/schema/qudt/inferredApplicableUnit>
+  a <http://spinrdf.org/spin#MagicProperty> ;
+  <http://spinrdf.org/spin#body> [
+      a <http://spinrdf.org/sp#Select> ;
+      <http://spinrdf.org/sp#distinct> true ;
+      <http://spinrdf.org/sp#resultVariables> (
+          [
+            <http://spinrdf.org/sp#varName> "unit" ;
+          ]
+        ) ;
+      <http://spinrdf.org/sp#where> (
+          [
+            a <http://spinrdf.org/sp#Union> ;
+            <http://spinrdf.org/sp#elements> (
+                (
+                  [
+                    <http://spinrdf.org/sp#object> <http://spinrdf.org/spin#_arg1> ;
+                    <http://spinrdf.org/sp#predicate> <http://qudt.org/schema/qudt/hasQuantityKind> ;
+                    <http://spinrdf.org/sp#subject> [
+                        <http://spinrdf.org/sp#varName> "unit" ;
+                      ] ;
+                  ]
+                  [
+                    a <http://spinrdf.org/sp#Filter> ;
+                    <http://spinrdf.org/sp#expression> [
+                        a <http://spinrdf.org/sp#notExists> ;
+                        <http://spinrdf.org/sp#elements> (
+                            [
+                              <http://spinrdf.org/sp#object> true ;
+                              <http://spinrdf.org/sp#predicate> <http://qudt.org/schema/qudt/deprecated> ;
+                              <http://spinrdf.org/sp#subject> [
+                                  <http://spinrdf.org/sp#varName> "unit" ;
+                                ] ;
+                            ]
+                          ) ;
+                      ] ;
+                  ]
+                  [
+                    a <http://spinrdf.org/sp#TriplePath> ;
+                    <http://spinrdf.org/sp#object> <http://qudt.org/schema/qudt/Unit> ;
+                    <http://spinrdf.org/sp#path> [
+                        a <http://spinrdf.org/sp#SeqPath> ;
+                        <http://spinrdf.org/sp#path1> rdf:type ;
+                        <http://spinrdf.org/sp#path2> [
+                            a <http://spinrdf.org/sp#ModPath> ;
+                            <http://spinrdf.org/sp#modMax> -2 ;
+                            <http://spinrdf.org/sp#modMin> 0 ;
+                            <http://spinrdf.org/sp#subPath> rdfs:subClassOf ;
+                          ] ;
+                      ] ;
+                    <http://spinrdf.org/sp#subject> [
+                        <http://spinrdf.org/sp#varName> "unit" ;
+                      ] ;
+                  ]
+                )
+                (
+                  [
+                    a <http://spinrdf.org/sp#NotExists> ;
+                    <http://spinrdf.org/sp#elements> (
+                        [
+                          <http://spinrdf.org/sp#object> <http://spinrdf.org/spin#_arg1> ;
+                          <http://spinrdf.org/sp#predicate> <http://qudt.org/schema/qudt/hasQuantityKind> ;
+                          <http://spinrdf.org/sp#subject> [
+                              <http://spinrdf.org/sp#varName> "unit" ;
+                            ] ;
+                        ]
+                        [
+                          a <http://spinrdf.org/sp#TriplePath> ;
+                          <http://spinrdf.org/sp#object> <http://qudt.org/schema/qudt/Unit> ;
+                          <http://spinrdf.org/sp#path> [
+                              a <http://spinrdf.org/sp#SeqPath> ;
+                              <http://spinrdf.org/sp#path1> rdf:type ;
+                              <http://spinrdf.org/sp#path2> [
+                                  a <http://spinrdf.org/sp#ModPath> ;
+                                  <http://spinrdf.org/sp#modMax> -2 ;
+                                  <http://spinrdf.org/sp#modMin> 0 ;
+                                  <http://spinrdf.org/sp#subPath> rdfs:subClassOf ;
+                                ] ;
+                            ] ;
+                          <http://spinrdf.org/sp#subject> [
+                              <http://spinrdf.org/sp#varName> "unit" ;
+                            ] ;
+                        ]
+                      ) ;
+                  ]
+                  [
+                    <http://spinrdf.org/sp#object> [
+                        <http://spinrdf.org/sp#varName> "parent1" ;
+                      ] ;
+                    <http://spinrdf.org/sp#predicate> <http://www.w3.org/2004/02/skos/core#broader> ;
+                    <http://spinrdf.org/sp#subject> <http://spinrdf.org/spin#_arg1> ;
+                  ]
+                  [
+                    <http://spinrdf.org/sp#object> [
+                        <http://spinrdf.org/sp#varName> "unit" ;
+                      ] ;
+                    <http://spinrdf.org/sp#predicate> <http://qudt.org/schema/qudt/inferredApplicableUnit> ;
+                    <http://spinrdf.org/sp#subject> [
+                        <http://spinrdf.org/sp#varName> "parent1" ;
+                      ] ;
+                  ]
+                )
+              ) ;
+          ]
+        ) ;
+    ] ;
+  <http://spinrdf.org/spin#constraint> [
+      a <http://spinrdf.org/spl#Argument> ;
+      <http://spinrdf.org/spl#predicate> <http://spinrdf.org/sp#arg1> ;
+      <http://spinrdf.org/spl#valueType> <http://qudt.org/schema/qudt/QuantityKind> ;
+      rdfs:comment "The QuantityKind instance" ;
+    ] ;
+  <http://spinrdf.org/spin#returnType> rdfs:Class ;
+  rdfs:comment """A magic property that returns all units that are \"applicable\" to a given QuantityKind, found by examining the incoming qudt:hasQuantityKind property for the provided QuantityKind. If there are none found, recurse up the skos:broader relation until such a QuantityKind is found.
+
+Example use:
+quantitykind:Power qudt:inferredApplicableUnit ?unit . """ ;
+  rdfs:isDefinedBy <http://qudt.org/schema/extensions/functions> ;
+  rdfs:label "applicable units for a QuantityKind instance" ;
+  rdfs:subClassOf <http://spinrdf.org/spin#MagicProperties> ;
+.
